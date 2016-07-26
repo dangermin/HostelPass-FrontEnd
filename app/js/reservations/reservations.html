@@ -1,0 +1,60 @@
+<nav class="navbar navbar-findcond navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img class="navbar-brand" src="..\..\css\images\logoB.jpg">
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Messages<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a ui-sref="reservations">Reservations<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Edit Profile</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container" id="reservations">
+    <div class="row">
+        
+        <div class="panel panel-info widget">
+            <div class="panel-heading">
+                
+                <h2 class="panel-title">
+                    Reservations</h2>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="reservation in reservations.reservations">
+                        <div class="row">
+                            <div class="col-xs-2 col-md-1">
+                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
+                            <div class="col-xs-10 col-md-11">
+                                <div>
+                                    <a ng-click="reservations.goToReservation(reservation.reservationId)">{{reservation.hostel.hostelName}}</a>
+                                    <div class="mic-info">
+                                        <b>Check-In Date</b> {{reservation.checkIn}} &nbsp; &nbsp; &nbsp;<b>Check-Out Date</b> {{reservation.checkOut}}
+                                    </div>
+                                </div>
+                                <div class="comment-text">
+                                    {{reservation.hostel.address}} {{reservation.hostel.city}} {{reservation.hostel.state}} {{reservation.hostel.zipCode}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

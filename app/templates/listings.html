@@ -1,0 +1,134 @@
+<nav class="navbar navbar-findcond navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img class="navbar-brand" src="/css/images/logoBlue.png">
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Messages<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a ui-sref="reservations">Reservations<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Edit Profile</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="search parent">
+    <div class="visible-xs">
+        <div class="input-group searchGroup">
+            <input type="text" class="form-control" id="searchBox" placeholder="Search for..." ng-model="listings.city">
+            <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="button" ><i class="glyphicon glyphicon-search"></i></button>
+                </span>
+        </div>
+    </div>
+    <div class="hidden-xs">
+        <div class="container">
+            <form action="" class="form-inline formGroup">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="searchBox" placeholder="Search for..." ng-model="listings.city">
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="date1" uib-datepicker-popup ng-model="listings.df" is-open="listings.popup1.opened" datepicker-options="listings.dateOptions" ng-required="true" close-text="Close" alt-input-formats="listings.altInputFormats" />
+                    <span class="input-group-btn" id="date1But">
+                            <button type="button" class="btn btn-default" ng-click="listings.open1()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                </div>
+                <div class="input-group">
+                    <!-- Second date box -->
+                    <input type="text" class="form-control" id="date2" uib-datepicker-popup ng-model="listings.dt" is-open="listings.popup2.opened" datepicker-options="listings.dateOptions" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn" id="date2But">
+                            <button type="button" class="btn btn-default" ng-click="listings.open2()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                </div>
+                <div class="input-group">
+                    <!-- Number of guests select -->
+                    <select class="selectpicker form-control">
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                        <option value="6">6 Guests</option>
+                        <option value="7">7 Guests</option>
+                        <option value="8">8 Guests</option>
+                        <option value="9">9 Guests</option>
+                        <option value="10">10 Guests</option>
+                        <option value="11">11 Guests</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <a class="form-control btn btn-primary" href=""><i class="glyphicon glyphicon-search" ng-click="listings.getListingsByCity(listings.city)"></i></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container pulldown" ng-init="listings.getListingsByCity()">
+    <div ng-repeat="hostel in listings.hostels">
+        <div class="col-md-6">
+            <div class="panel panel-default card elevate" ng-click="listings.getInfo(hostel)" data-toggle="modal" data-target="#squarespaceModal">
+                <div class="panel-body text-center">
+                    <img class="img-responsive ratio-4-3" src="{{hostel.image}}" /> {{hostel.hostelName}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Not the modal ^ -->
+<!-- line modal -->
+<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h3 class="modal-title text-center" id="lineModalLabel">{{listings.hostelName}}</h3>
+            </div>
+            <div class="modal-body">
+                <!-- content goes here -->
+                <img class="img-responsive" src="{{listings.image}}" />
+                <br>
+                <h3 class="text-center">{{listings.description}}</h3>
+                <br><b>Rating: </b>
+                <i ng-show="listings.onestar" class="glyphicon glyphicon-star"></i>
+                <i ng-show="listings.twostars" class="glyphicon glyphicon-star"></i>
+                <i ng-show="listings.threestars" class="glyphicon glyphicon-star"></i>
+                <i ng-show="listings.fourstars" class="glyphicon glyphicon-star"></i>
+                <i ng-show="listings.fivestars" class="glyphicon glyphicon-star"></i>
+                <br> <b>Address:</b> {{listings.address}}
+                <br><b>City:</b> {{listings.city}}
+                <br><b>State:</b> {{listings.state}}
+                <br><b>Zip Code:</b> {{listings.zipCode}}
+                <br><b>Price:</b> ${{listings.price}}
+                <br><b>State:</b> {{listings.state}}
+                <br><b>Zip Code:</b> {{listings.zipCode}}
+            </div>
+            <div class="modal-footer">
+                <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default btn-hover-red" data-dismiss="modal" role="button">Close</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" id="saveImage" ng-click="listings.createReservation()" class="btn btn-default btn-hover-green" data-action="save" role="button">Proceed to Payment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

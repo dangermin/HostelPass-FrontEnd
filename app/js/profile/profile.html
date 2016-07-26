@@ -1,0 +1,126 @@
+﻿<section class="mainbar">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="widget worange">
+                        <div data-cc-widget-header>
+                        </div>
+                        <div class="widget-content user">
+                            <h1 ng-hide="editing" ng-click="editing = true" style="font-weight: bold; color: #337AB7">{{hostelProfile.hostel.hostelName}}</h1>
+                            <form ng-show="editing" ng-submit="editing = false">
+                                <label>Name of Hostel:</label>
+                                <input type="text" ng-model="hostelName" placeholder="" style="width:100%; height: 100%" ng-required />
+                            </form>
+                            <span ng-hide="editing"><label>Address: </label> {{hostelProfile.hostel.city}} {{hostelProfile.hostel.state}} {{hostelProfile.hostel.zipCode}} {{hostelProfile.numberOfReviews}}</span>
+                            <form ng-show="editing" ng-submit="editing = false">
+                                <input type="text" ng-model="city" placeholder="City" ng-required />
+                                <input type="text" ng-model="country" placeholder="Country" ng-required />
+                                <button class="btn" type="submit" style="background: #337AB7; color: white;">Save</button>
+                            </form>
+                            <hr>
+                            <h3 style="font-weight:bold">About Us</h3>
+                            <span ng-hide="editing" ng-click="editing = true">{{hostelProfile.hostel.description}}</span>
+                            <form ng-show="editing" ng-submit="editing = false">
+                                <label>Tell us about yourself:</label>
+                                <input type="text" ng-model="aboutUs" placeholder="..." style="width:100%; height: 100%" ng-required />
+                            </form>
+                            <hr>
+                            <h3 style="font-weight:bold">The Space</h3>
+                            <table ng-hide="editing" ng-click="editing = true">
+                                <tr>
+                                    <td>Availability: {{hostelProfile.hostel.availability}}</td>
+                                </tr>
+                            </table>
+                            <form ng-show="editing" ng-submit="editing = false">
+                                <input type="number" ng-model="accomodates" placeholder="# of people" ng-required />
+                                <input type="number" ng-model="bathrooms" placeholder="# of bathrooms" ng-required />
+                                <input type="number" ng-model="bedrooms" placeholder="# of bedrooms" ng-required />
+                                <input type="number" ng-model="beds" placeholder="# of beds" ng-required />
+                            </form>
+                            <hr>
+                            <h3 style="font-weight:bold">Amenities</h3>
+                            <table ng-hide="editing" ng-click="editing = true">
+                                <tr>
+                                    <td>{{hostelProfile.hostile.amenities}}</td>
+                                </tr>
+                            </table>
+                            <form ng-show="editing" ng-submit="editing = false">
+                                <input type="text" ng-model="amenities" placeholder="What does your hostel provide for its guests?" style="width:100%; height: 100%" ng-required />
+                            </form>
+                            <hr>
+                            <h3 style="font-weight:bold">Prices</h3>
+                            <table ng-hide="editing" ng-click="editing = true">
+                                <tr>
+                                    <td>${{hostelProfile.hostel.price}}</td>
+                                </tr>
+                            </table>
+                            <form ng-show="editing" ng-submit="editing = false">
+                                <input type="text" ng-model="prices" placeholder="prices of rooms and beds" style="width:100%; height: 100%" ng-required />
+                            </form>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div>
+                            <button ng-click="editing = true" style="background: #337AB7; color: white; border:solid lightgrey 1px; float: left">Edit</button>
+                            <form ng-show="editing" ng-submit="editing = false">
+                                <button class="btn" type="submit" style="background: #337AB7; color: white; border:solid lightgrey 1px; float: right">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="widget worange" style="background-color: #eee;">
+                        <div data-cc-widget-header title="More"></div>
+                        <div class="widget-content user">
+                            <table ng-hide="editing" ng-click="editing = true">
+                                <h5 class="glyphicon glyphicon-earphone"> {{hostelProfile.hostel.phone}}</h5>
+                            </table>
+                            <form ng-show="editing" ng-submit="editing = false">
+                                <input type="text" ng-model="phone" placeholder="phone #" style="width:100%; height: 100%" ng-required />
+                            </form>
+                            <hr>
+                            <table ng-hide="editing" ng-click="editing = true">
+                                <h5 class="glyphicon glyphicon-envelope"> {{hostelProfile.hostel.hostelOwner.emailAddress}}</h5>
+                            </table>
+                            <form ng-show="editing" ng-submit="editing = false">
+                                <input type="text" ng-model="email" placeholder="email:" style="width:100%; height: 100%; font-size: 100%" ng-required />
+                            </form>
+                            <hr>
+                            <h5 class="glyphicon glyphicon-picture"> Pictures</h5>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <form class="input-group">
+                        <select class="form-control" ng-model="hostelId" style="width:100%; height: 100%">
+                        <option ng-repeat="hostel in hostelProfile.hostels" value="{{hostel.hostelId}}">{{hostel.hostelName}}</option>
+                        </select>
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default" ng-click="hostelProfile.displayHostel(hostelId)">Go!</button>
+                        </span>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" style="margin-top: 50px">
+                <div class="col-md-6">
+                    <img src="css/images/bedroom.JPG" alt="bedroom" style="height:100%; width: 100%; border-radius: 6px; margin-bottom: 20px">
+                </div>
+                <div class="col-md-6">
+                    <img src="css/images/kitchen.JPG" alt="kitchen" style="height:100%; width: 100%; border-radius: 6px; margin-bottom: 20px">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="css/images/food.jpg" alt="food" style="height:100%; width: 100%; border-radius: 6px">
+                </div>
+                <div class="col-md-6">
+                    <img src="css/images/commonArea.jpg" alt="common area" style="height:100%; width: 100%; border-radius: 6px">
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

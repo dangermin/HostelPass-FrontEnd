@@ -1,0 +1,141 @@
+<nav class="navbar navbar-findcond navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img class="navbar-brand" src="/css/images/logoBlue.png">
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Messages<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a ui-sref="reservations">Reservations<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Edit Profile</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="search parent">
+    <div class="visible-xs">
+        <div class="input-group searchGroup">
+            <input type="text" class="form-control" id="searchBox" placeholder="Search for..." ng-model="travelerDash.city">
+            <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="button" ><i class="glyphicon glyphicon-search"></i></button>
+                </span>
+        </div>
+    </div>
+    <div class="hidden-xs">
+        <div class="container">
+            <form action="" class="form-inline formGroup">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="searchBox" placeholder="Search for..." ng-model="travelerDash.city">
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="date1" uib-datepicker-popup ng-model="travelerDash.df" is-open="travelerDash.popup1.opened" datepicker-options="travelerDash.dateOptions" ng-required="true" close-text="Close" alt-input-formats="travelerDash.altInputFormats" />
+                    <span class="input-group-btn" id="date1But">
+                            <button type="button" class="btn btn-default" ng-click="travelerDash.open1()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                </div>
+                <div class="input-group">
+                    <!-- Second date box -->
+                    <input type="text" class="form-control" id="date2" uib-datepicker-popup ng-model="travelerDash.dt" is-open="travelerDash.popup2.opened" datepicker-options="travelerDash.dateOptions" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn" id="date2But">
+                            <button type="button" class="btn btn-default" ng-click="travelerDash.open2()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                </div>
+                <div class="input-group">
+                    <!-- Number of guests select -->
+                    <select class="selectpicker form-control">
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                        <option value="6">6 Guests</option>
+                        <option value="7">7 Guests</option>
+                        <option value="8">8 Guests</option>
+                        <option value="9">9 Guests</option>
+                        <option value="10">10 Guests</option>
+                        <option value="11">11 Guests</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <a class="form-control btn btn-primary" ng-click="travelerDash.search()"><i class="glyphicon glyphicon-search"></i></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1 class="text-center heading">Explore the World</h1>
+    <div class="set">
+        <ul class="row">
+            <li class="col-lg-4 col-md-4 col-sm-6">
+                <div class="img-responsive img-thumbnail ratio-4-3 image" style="background-image:url('css/images/sanfrans.jpg')">
+                    <p class="title">San Fransisco</p>
+                </div>
+            </li>
+            <li class="col-lg-4 col-md-4 col-sm-6">
+                <div class="img-responsive img-thumbnail ratio-4-3 image" style="background-image:url('css/images/hawaiis.jpg')">
+                    <p class="title">Hawaii</p>
+                </div>
+            </li>
+            <li class="col-lg-4 col-md-4 col-sm-6">
+                <div class="img-responsive img-thumbnail ratio-4-3 image" style="background-image:url('css/images/londons.jpg')">
+                    <p class="title">London</p>
+                </div>
+            </li>
+            <li class="col-lg-8 col-md-8 col-sm-6">
+                <div class="img-responsive img-thumbnail ratio  image" style="background-image:url('css/images/seattles.jpg')">
+                    <p class="title">Seattle</p>
+                </div>
+            </li>
+            <li class="col-lg-4 col-md-4 col-sm-6">
+                <div class="img-responsive img-thumbnail ratio-4-3 image" style="background-image:url('css/images/newyorks.jpg')">
+                    <p class="title">New York</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <ul class="row">
+        <li class="col-lg-4 col-md-4 col-sm-6">
+            <div class="img-responsive img-thumbnail ratio-4-3 image" style="background-image:url('css/images/pariss.jpg')">
+                <p class="title">Paris</p>
+            </div>
+        </li>
+        <li class="col-lg-8 col-md-8 col-sm-6">
+            <div class="img-responsive img-thumbnail ratio image" style="background-image:url('css/images/quebecs.jpg')">
+                <p class="title">Québec</p>
+            </div>
+        </li>
+        <li class="col-lg-4 col-md-4 col-sm-6">
+            <div class="img-responsive img-thumbnail ratio-4-3 image" style="background-image:url('css/images/romes.jpg')">
+                <p class="title">Rome</p>
+            </div>
+        </li>
+        <li class="col-lg-4 col-md-4 col-sm-6">
+            <div class="img-responsive img-thumbnail ratio-4-3 image" style="background-image:url('css/images/thais.jpg')">
+                <p class="title">Thailand</p>
+            </div>
+        </li>
+        <li class="col-lg-4 col-md-4 col-sm-6">
+            <div class="img-responsive img-thumbnail ratio-4-3 image" style="background-image:url('css/images/moscows.jpg')">
+                <p class="title">Moscow</p>
+            </div>
+        </li>
+    </ul>
+</div>

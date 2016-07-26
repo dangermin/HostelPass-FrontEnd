@@ -1,0 +1,31 @@
+{
+  "name": "hostl",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "postinstall": "bower install"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "express": "^4.13.4",
+    "gulp-connect": "^4.1.0",
+    "gulp-inject": "^4.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-open": "^2.0.0",
+    "gulp-serve": "^1.2.0",
+    "gulp-util": "^3.0.7"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wesbosse/HostelPass-FrontEnd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wesbosse/HostelPass-FrontEnd/issues"
+  },
+  "homepage": "https://github.com/wesbosse/HostelPass-FrontEnd#readme",
+  "description": ""
+}

@@ -1,0 +1,72 @@
+﻿<section id="dashboard-view" class="mainbar">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="widget worange">
+                        <div data-cc-widget-header title="Requests"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-center text-info">
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="p in dashboard.hostels">
+                                        <td>{{p.firstName}}</td>
+                                        <td>{{p.date}}</td>
+                                        <td>{{p.status}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="widget worange">
+                        <div data-cc-widget-header title="Hostels"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-center text-info">
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Select your hostel</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="p in dashboard.hostels">
+                                        <td>{{p.firstName}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="row">   
+                <div class="col-md-12">
+                    <div class="widget worange">
+                        <div data-cc-widget-header title="Bookings List"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-center text-info">
+                            <small>{{dashboard.news.description}}</small>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</section>
